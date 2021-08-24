@@ -12,7 +12,7 @@ class MultiSelectAsset extends AssetBundle
     public $publishOptions = [
         'forceCopy' => YII_DEBUG
     ];
-    public $sourcePath = '@vendor/nurielmeni/multiselect/assets';
+    public $sourcePath = '@nurielmeni/multiselect/assets';
     public $css = [
         'css/multiSelect.css',
     ];
