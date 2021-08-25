@@ -6,9 +6,9 @@
    */
   var updateValue = function(el) {
     if (!el) return;
-    
-    var value = $('#' + el + '-options li[aria-selected="true"]').map(function(option) {
-      return option.attr('value');
+
+    var value = $('#' + el + '-options li[aria-selected="true"]').map(function(i, o) {
+      return $(o).attr('value');
     });
 
     $('#' + el).val(value);
