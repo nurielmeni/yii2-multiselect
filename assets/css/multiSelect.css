@@ -50,7 +50,6 @@ ul.m-multiselect-options {
 
 ul.m-multiselect-options li {
   list-style: none;
-  padding: 0.25rem 1.25rem;
   background-color: var(--m-multiselect--button);
   border: 2px solid var(--m-multiselect--button);
   color: var(--m-multiselect--text);
@@ -66,7 +65,7 @@ ul.m-multiselect-options li:hover {
 }
 
 ul.m-multiselect-options li:focus {
-    border: 2px dashed var(--m-multiselect--focus);
+  border: 2px dashed var(--m-multiselect--focus);
 }
 
 ul.m-multiselect-options li[aria-selected="true"] {
@@ -76,6 +75,7 @@ ul.m-multiselect-options li[aria-selected="true"] {
 ul.m-multiselect-options li,
 .m-multiselect-wrapper .card-footer.action button {
   margin: 0.5rem 0.25rem;
+  padding: 0.25rem 1.25rem;
   border-radius: 50px;
   min-width: 8rem;
   text-align: center;
@@ -91,7 +91,6 @@ ul.m-multiselect-options li,
 .m-multiselect-wrapper .card-footer.action button {
   border: 1px solid var(--m-multiselect--border);
   background-color: transparent;
-  padding: 0.5rem 1.5rem;
   display: flex;
   align-items: center;
 }
