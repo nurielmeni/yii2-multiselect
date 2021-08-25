@@ -10,8 +10,8 @@ use nurielmeni\multiselect\assets\MultiSelectAsset;
 class MultiSelectWidget extends \yii\base\Widget
 {
     public $name = '';
-    public $rtl = true;
     public $label = '';
+    public $rtl = true;
 
     public function init()
     {
@@ -24,8 +24,8 @@ class MultiSelectWidget extends \yii\base\Widget
     public function run()
     {
         return $this->render('multiSelect', [
-            'text' => "Hellow from multi select",
             'name' => $this->name,
+            'label' => $this->label,
             'rtl' => $this->rtl,
         ]);
     }
