@@ -53,13 +53,33 @@
 
     // Set focus to button
     $('.m-multiselect-wrapper .collapse').on('shown.bs.collapse', function() {
-      $(this).find('li[role="option"]')[0].focus();
+      $(this).find('li[role="option"]:first-child').focus();
     });
     
     // Set focus to first option
     $('.m-multiselect-wrapper .collapse').on('hidden.bs.collapse', function() {
-      $(this).parents('.m-multiselect-wrapper').find('p.m-multiselect-button button').focus();
+      $(this).parents('.m-multiselect-wrapper').find('p.m-multiselect-button button:first-child').focus();
     });
 
+    $('.m-multiselect-wrapper').on('keydown', function(e) {
+      e = e || window.event;
+
+      if (e.keyCode == '13') {
+        // Enter
+        document.activeElement.click();
+      }
+    });
+
+    $('.m-multiselect-options li[role="option"]').on('keydown', function(e) {
+      e = e || window.event;
+      if (e.keyCode == '37') {
+        // right arrow
+        document.activeElement.previousSibling.focuse();
+      }
+      else if (e.keyCode == '39') {
+        // left arrow
+        document.activeElement.nextSibling.focuse();
+      }
+    });
   });
 }) (jQuery);
