@@ -55,6 +55,14 @@ ul.m-multiselect-options li {
   cursor: pointer;
 }
 
+ul.m-multiselect-options li:hover {
+  border: 1px solid var(--m-multiselect--border);
+}
+
+ul.m-multiselect-options li:focus {
+    border: 1px doted var(--m-multiselect--text);
+}
+
 ul.m-multiselect-options li[aria-selected="true"] {
   background-color: var(--m-multiselect--selected);
 }
@@ -75,7 +83,7 @@ ul.m-multiselect-options li,
 }
 
 .m-multiselect-wrapper .card-footer.action button {
-  border: none;
+  border: 1px solid var(--m-multiselect--border);
   background-color: transparent;
   padding: 0.5rem 1.5rem;
   display: flex;

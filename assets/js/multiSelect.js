@@ -33,16 +33,11 @@
   }
 
   $(document).ready(function() {
-    // 1. Get all multiselect elements
-
-    // 2. Hide all select elements
-
-    // 3. Render each multiselect element
-
     // EVEN HANDLERS
     // Toggle selected options
     $('.m-multiselect-options li[role="option"]').on('click', function() {
       this.ariaSelected = this.ariaSelected === "true" ? "false" : "true";
+      $(this).focus();
       updateValue($(this).parents('.m-multiselect-wrapper').data('el-id'));
     });
 
@@ -54,6 +49,16 @@
     // Remove all listener
     $('.m-multiselect-wrapper .card-footer.action button.remove-all').on('click', function() {
       removeAll($(this).parents('.m-multiselect-wrapper').data('el-id'));
+    });
+
+    // Set focus to button
+    $('.m-multiselect-wrapper .collapse').on('shown.bs.collapse', function() {
+      $(this).parents('.m-multiselect-wrapper').find('p.m-multiselect-button button').focus();
+    });
+
+    // Set focus to first option
+    $('.m-multiselect-wrapper .collapse').on('hidden.bs.collapse', function() {
+      $(this).find('li[role="option"]')[0].focus();
     });
 
   });
