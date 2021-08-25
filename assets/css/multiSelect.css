@@ -29,7 +29,7 @@ p.m-multiselect-button .material-icons {
   font-size: 2rem;
 }
 
-p.m-multiselect-button[aria-expanded="true"] .material-icons.m-icon.open {
+p.m-multiselect-button button[aria-expanded="true"] .material-icons.m-icon.open {
   transform: rotate(180deg);
 }
 
@@ -54,6 +54,7 @@ ul.m-multiselect-options li {
   text-align: center;
   background-color: var(--m-multiselect--button);
   color: var(--m-multiselect--text);
+  cursor: pointer;
 }
 
 ul.m-multiselect-options li[aria-selected="true"] {

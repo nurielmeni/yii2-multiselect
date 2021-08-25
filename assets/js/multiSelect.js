@@ -4,8 +4,12 @@
   /**
    * @param {dom element} el the select wrapper
    */
-  var renderSelect = function(el) {
-    
+  var updateValue = function(el) {
+    var value = $('#' + el + '-options li[aria-selected="true"]').map(function(option) {
+      return option.attr('value');
+    });
+
+    $('#' + el).val(value);
   }
 
   $(document).ready(function() {
@@ -16,5 +20,10 @@
     // 3. Render each multiselect element
 
     // EVEN HANDLERS
+    // Toggle selected options
+    $('m-multiselect-options li[role="option"]').on('click', function() {
+      this.ariaSelected = this.ariaSelected === "true" ? "false" : "true";
+      updateValue($(this).data('el-id'));
+    });
   });
 }) (jQuery);
