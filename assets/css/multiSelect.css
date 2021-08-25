@@ -70,10 +70,18 @@ ul.m-multiselect-options li,
 .m-multiselect-wrapper .card-footer.action {
   border: none;
   background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .m-multiselect-wrapper .card-footer.action button {
   border: none;
   background-color: transparent;
   padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.m-multiselect-wrapper .card-footer.action button .material-icons {
+  font-size: 1.25rem;
 }
