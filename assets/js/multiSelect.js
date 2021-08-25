@@ -48,11 +48,13 @@
 
     // Select all listener
     $('.m-multiselect-wrapper .card-footer.action button.select-all').on('click', function() {
+      selectAll();
       updateValue($(this).parents('.m-multiselect-wrapper').data('el-id'));
     });
 
     // Remove all listener
     $('.m-multiselect-wrapper .card-footer.action button.remove-all').on('click', function() {
+      removeAll();
       updateValue($(this).parents('.m-multiselect-wrapper').data('el-id'));
     });
 
