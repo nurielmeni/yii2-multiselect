@@ -26,7 +26,7 @@ class MultiSelectWidget extends \yii\base\Widget
         return $this->render('multiSelect', [
             'text' => "Hellow from multi select",
             'name' => $this->name,
-            'rtl' => $this->dir,
+            'rtl' => $this->rtl,
         ]);
     }
 }
