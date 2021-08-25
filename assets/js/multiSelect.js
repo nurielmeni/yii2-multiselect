@@ -5,6 +5,8 @@
    * @param {dom element} el the select wrapper
    */
   var updateValue = function(el) {
+    if (!el) return;
+    
     var value = $('#' + el + '-options li[aria-selected="true"]').map(function(option) {
       return option.attr('value');
     });
@@ -23,7 +25,7 @@
     // Toggle selected options
     $('.m-multiselect-options li[role="option"]').on('click', function() {
       this.ariaSelected = this.ariaSelected === "true" ? "false" : "true";
-      updateValue($(this).data('el-id'));
+      updateValue($(this).parent().data('el-id'));
     });
   });
 }) (jQuery);
