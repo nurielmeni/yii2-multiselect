@@ -4,15 +4,9 @@ use yii\bootstrap4\Dropdown;
 ?>
 
 <div class="m-multiselect-wrapper" dir="<?= $rtl ? 'rtl' : 'ltr' ?>">
-  <select id="<?= $name ?>" multiple name="<?= $name ?>[]">
-    <option value="1">first</option>
-    <option value="2">secound</option>
-    <option value="3">third</option>
-    <option value="4">forth</option>
-  </select>
   <p>
     <label for="<?= $name ?>-options"><?= $label ?></label>
-    <button id="<?= $name ?>-button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<?= $name ?>-collapse" aria-expanded="false" aria-controls="<?= $name ?>-collapse">
+    <button id="<?= $name ?>-button" class="btn btn-primary toggle" type="button" data-toggle="collapse" data-target="#<?= $name ?>-collapse" aria-expanded="false" aria-controls="<?= $name ?>-collapse">
       <span class="selection-hint"></span>
       <span class="material-icons" role="aria-img">expand_more</span>
 
