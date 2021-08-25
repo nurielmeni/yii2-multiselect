@@ -53,12 +53,12 @@
 
     // Set focus to button
     $('.m-multiselect-wrapper .collapse').on('shown.bs.collapse', function() {
-      $(this).parents('.m-multiselect-wrapper').find('p.m-multiselect-button button').focus();
+      $(this).find('li[role="option"]')[0].focus();
     });
-
+    
     // Set focus to first option
     $('.m-multiselect-wrapper .collapse').on('hidden.bs.collapse', function() {
-      $(this).find('li[role="option"]')[0].focus();
+      $(this).parents('.m-multiselect-wrapper').find('p.m-multiselect-button button').focus();
     });
 
   });

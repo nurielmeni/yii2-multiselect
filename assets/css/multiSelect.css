@@ -51,16 +51,17 @@ ul.m-multiselect-options li {
   list-style: none;
   padding: 0.25rem 1.25rem;
   background-color: var(--m-multiselect--button);
+  border: 2px solid var(--m-multiselect--button);
   color: var(--m-multiselect--text);
   cursor: pointer;
 }
 
 ul.m-multiselect-options li:hover {
-  border: 1px solid var(--m-multiselect--border);
+  border: 2px solid var(--m-multiselect--border);
 }
 
 ul.m-multiselect-options li:focus {
-    border: 1px doted var(--m-multiselect--text);
+    border: 2px doted var(--m-multiselect--text);
 }
 
 ul.m-multiselect-options li[aria-selected="true"] {
