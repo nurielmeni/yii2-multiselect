@@ -9,17 +9,44 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
   color: var(--m-multiselect--text);
   border-color: var(--m-multiselect--border);
   border-right: none;
   border-left: none;
   border-radius: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+p.m-multiselect-button {
+  position: relative;
+}
+
+p.m-multiselect-button .material-icons {
+  font-size: 2rem;
+}
+
+p.m-multiselect-button .material-icons.m-icon.open {
+    transform: rotate(180deg);
+}
+
+p.m-multiselect-button label {
+  position: absolute;
+  margin: 0;
+}
+
+.m-multiselect-wrapper .card.card-body {
+  border: none;
 }
 
 ul.m-multiselect-options {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   width: 100%;
+  padding: 0;
 }
 
 ul.m-multiselect-options li {
