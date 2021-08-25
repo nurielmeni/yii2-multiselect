@@ -2,7 +2,7 @@
   --m-multiselect--text: #000000;
   --m-multiselect--border: #dfdfdf;
   --m-multiselect--button: #f5f5f5;
-  --m0multiselect--selected: #929292;
+  --m-multiselect--selected: #929292;
 }
 
 .m-multiselect-wrapper button.toggle {
@@ -22,19 +22,15 @@
 
 p.m-multiselect-button {
   position: relative;
+  margin-bottom: 3px;
 }
 
 p.m-multiselect-button .material-icons {
   font-size: 2rem;
 }
 
-p.m-multiselect-button .material-icons.m-icon.open {
-    transform: rotate(180deg);
-}
-
-p.m-multiselect-button label {
-  position: absolute;
-  margin: 0;
+p.m-multiselect-button[aria-expanded="true"] .material-icons.m-icon.open {
+  transform: rotate(180deg);
 }
 
 .m-multiselect-wrapper .card.card-body {
@@ -61,5 +57,5 @@ ul.m-multiselect-options li {
 }
 
 ul.m-multiselect-options li[aria-selected="true"] {
-  background-color: var(--m0multiselect--selected);
+  background-color: var(--m-multiselect--selected);
 }
