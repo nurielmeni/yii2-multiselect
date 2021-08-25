@@ -74,11 +74,11 @@
       e = e || window.event;
       if (e.keyCode == '37') {
         // right arrow
-        document.activeElement.previousSibling.focuse();
+        document.activeElement.previousSibling.focus();
       }
       else if (e.keyCode == '39') {
         // left arrow
-        document.activeElement.nextSibling.focuse();
+        document.activeElement.nextSibling.focus();
       }
     });
   });
