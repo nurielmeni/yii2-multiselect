@@ -21,7 +21,7 @@
 
     // EVEN HANDLERS
     // Toggle selected options
-    $('m-multiselect-options li[role="option"]').on('click', function() {
+    $('.m-multiselect-options li[role="option"]').on('click', function() {
       this.ariaSelected = this.ariaSelected === "true" ? "false" : "true";
       updateValue($(this).data('el-id'));
     });
