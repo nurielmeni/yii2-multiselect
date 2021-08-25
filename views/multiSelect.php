@@ -14,7 +14,8 @@ use yii\bootstrap4\Dropdown;
   </p>
   <div id="<?= $name ?>-collapse" class="collapse">
     <div class="card card-body">
-      <ul id="<?= $name ?>-options"  class="m-multiselect-options" role="listbox">
+      <input id="<?= $name ?>" name="<?= $name ?>" type="hidden" value="[]" />
+      <ul id="<?= $name ?>-options" class="m-multiselect-options" role="listbox">
         <li role="option" aria-selected="false" value="1">first</li>
         <li role="option" aria-selected="false" value="2">secound</li>
         <li role="option" aria-selected="false" value="3">third</li>
