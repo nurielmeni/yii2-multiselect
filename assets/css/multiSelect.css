@@ -36,7 +36,7 @@ p.m-multiselect-button .material-icons {
 
 p.m-multiselect-button
   button[aria-expanded="true"]
-  .material-icons.m-icon.open {
+  .material-icons.m-icon {
   transform: rotate(180deg);
 }
 
