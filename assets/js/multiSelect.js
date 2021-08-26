@@ -47,7 +47,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
    * @param {string} el The MS name (Element id)
    * @returns the MS values array 
    */
-  var textValues = function(el) {
+  var optionsText = function(el) {
     return data[el].selectText;
   }
 
