@@ -26,6 +26,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
 
     $('.m-multiselect-wrapper').each(function(){
       var msId = $(this).data('el-id');
+      data[msId] = {};
       Object.assign(data[msId], { selectValues:[]});
     });
 
