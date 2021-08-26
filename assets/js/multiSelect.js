@@ -1,44 +1,107 @@
-(function ($) {
-  var selectValues = [];
+var MMultiSelect = MMultiselect || (function ($) {
+  var data = {};
+  var maxOptionsShow = 2;
+  var showSelected = true;
+  var text_selected = 'נבחרו';
+  var text_all_selected = 'כולם נבחרו';
 
   /**
-   * @param {dom element} el the select wrapper
+   * 
+   * @param {Object} configuration object 
+   * @returns null
    */
-  var updateValue = function (el) {
-    if (!el) return;
+  var init = function(config) {
+    maxOptionsShow = config.maxOptionsShow || 2;
+    showSelected = !!config.showSelected;
 
-    var value = $('#' + el + '-options li[aria-selected="true"]').map(function (i, o) {
-      return $(o).attr('value');
-    });
-    selectValues = value.toArray();
-    $('#' + el).val(selectValues);
+    setEventListeners();
+    console.log('MMultiselect Initialized');
+  }
+
+  /**
+   * 
+   * @param {string} el The MS name (Element id)
+   * @returns the MS values array 
+   */
+  var value = function(el) {
+    return data[el].selectValues;
+  }
+
+  /**
+   * @param {dom element id} msId the select wrapper
+   * @param {dom element} the selected option the select wrapper
+   */
+  var updateValue = function (msId, el) {
+    if (!msId || !el) return;
+
+    if (el.ariaSelected === "true") {
+      selectedValuesAdd(msId, el);
+    } else {
+      selectedValuesRemove(msId, el);
+    }
+
+    $('#' + msId).val(data[msId].selectValues);
+    showSelectedOptions(msId);
+  }
+
+  var selectedValuesAdd = function(msId, value) {
+    if (Array.isArray(data[msId].selectValues)) {
+      data[msId].selectValues.push(value);
+    } else {
+      data[msId].selectValues = [value];
+    }
+  }
+
+  var selectedValuesRemove = function(msId, value) {
+    if (Array.isArray(data[msId].selectValues)) {
+      var index = data[msId].selectValues.indexOf(value);
+      if(index < 0) return;
+      data[msId].selectValues.splice(index, 1);
+    }
+  }
+
+  var showSelectedOptions = function(msId) {
+    if (!showSelected) return;
+    var totalOptions = $('#' + msId + '-options li[role="option"]').length;
+    var selectedOptions = data[msId].selectValues.length;
+    var textValue = '';
+
+    if (totalOptions === selectedOptions) {
+      textValue = text_all_selected;
+    } else if (selectedOptions > maxOptionsShow) {
+      textValue = selectedOptions + ' ' + text_selected;
+    } else {
+      textValue = data[msId].selectValues.join(',');
+    }
+
+    $('#' + msId + '-hint').text(textValue);
+  }
+
+  /**
+   * @param {dom element} msId the select wrapper
+   */
+  var selectAll = function (msId) {
+    if (!msId) return;
+    $('#' + msId + '-options li').attr('aria-selected', 'true');
+    updateValue(msId);
   }
 
   /**
    * @param {dom element} el the select wrapper
    */
-  var selectAll = function (el) {
-    if (!el) return;
-    $('#' + el + '-options li').attr('aria-selected', 'true');
-    updateValue(el);
+  var removeAll = function (msId) {
+    if (!msId) return;
+    $('#' + msId + '-options li').attr('aria-selected', 'false');
+    updateValue(msId);
   }
 
-  /**
-   * @param {dom element} el the select wrapper
-   */
-  var removeAll = function (el) {
-    if (!el) return;
-    $('#' + el + '-options li').attr('aria-selected', 'false');
-    updateValue(el);
-  }
-
-  $(document).ready(function () {
+  var setEventListeners = function () {
     // EVEN HANDLERS
     // Toggle selected options
     $('.m-multiselect-options li[role="option"]').on('click', function () {
       this.ariaSelected = this.ariaSelected === "true" ? "false" : "true";
       $(this).focus();
-      updateValue($(this).parents('.m-multiselect-wrapper').data('el-id'));
+      updateValue($(this).parents('.m-multiselect-wrapper').data('el-id'), this);
     });
 
     // Select all listener
@@ -61,6 +124,7 @@
       $(this).parents('.m-multiselect-wrapper').find('p.m-multiselect-button button:first-child').focus();
     });
 
+    // Set the enter key action
     $('.m-multiselect-wrapper').on('keydown', function (e) {
       e = e || window.event;
 
@@ -70,6 +134,7 @@
       }
     });
 
+    // Set the arrows key action
     $('.m-multiselect-options li[role="option"]').on('keydown', function (e) {
       e = e || window.event;
       if (e.keyCode == '37') {
@@ -81,5 +146,11 @@
         document.activeElement.previousElementSibling && document.activeElement.previousElementSibling.focus();
       }
     });
-  });
+
+  };
+
+  return {
+    init: init,
+    value: value
+  }
 })(jQuery);

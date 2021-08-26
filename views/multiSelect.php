@@ -15,9 +15,9 @@ use yii\bootstrap4\Dropdown;
   <div id="<?= $name ?>-collapse" class="collapse">
     <div class="card-body">
       <ul id="<?= $name ?>-options" class="m-multiselect-options" role="listbox" aria-labelledby="<?= $name ?>-label">
-        <li role="option" aria-selected="false" value="1" tabindex='-1'>first</li>
-        <li role="option" aria-selected="false" value="2" tabindex='-1'>secound</li>
-        <li role="option" aria-selected="false" value="3" tabindex='-1'>third</li>
+        <?php foreach($options as $key => $option) : ?>
+          <li role="option" aria-selected="false" value="<?= $key ?>" tabindex='-1'><?= $option ?></li>
+        <?php endforeach; ?>
       </ul>
     </div>
     <div class="card-footer action">
@@ -27,3 +27,14 @@ use yii\bootstrap4\Dropdown;
 
   </div>
 </div>
+
+<?php 
+
+$js = <<<JS
+  MMultiSelect.init({
+    maxOptionsShow: $maxOptionsShow,
+    showSelected: $showSelected
+  });
+JS;
+
+$this->registerJs($js, yii\web\View::POS_READY);
