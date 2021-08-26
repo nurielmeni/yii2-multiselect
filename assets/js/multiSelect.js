@@ -48,11 +48,12 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
    */
   var updateValue = function (msId, el) {
     if (!msId || !el) return;
+    var value = $(el).attr('value');
 
     if (el.ariaSelected === "true") {
-      selectedValuesAdd(msId, el);
+      selectedValuesAdd(msId, value);
     } else {
-      selectedValuesRemove(msId, el);
+      selectedValuesRemove(msId, value);
     }
 
     $('#' + msId).val(data[msId].selectValues);
