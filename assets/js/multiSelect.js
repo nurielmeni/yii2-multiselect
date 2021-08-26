@@ -4,6 +4,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var showSelected = true;
   var text_selected = 'נבחרו';
   var text_all_selected = 'כולם נבחרו';
+  var ready = false;
 
   /**
    * 
@@ -14,8 +15,21 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     maxOptionsShow = config.maxOptionsShow || 2;
     showSelected = !!config.showSelected;
 
+    initData();
+    if (!ready) return;
     setEventListeners();
     console.log('MMultiselect Initialized');
+  }
+
+  var initData = function() {
+    if ($('.m-multiselect-wrapper').length === 0) return;
+
+    $('.m-multiselect-wrapper').each(function(){
+      var msId = $(this).data('el-id');
+      Object.assign(data[msId], { selectValues:[]});
+    });
+
+    ready = true;
   }
 
   /**
