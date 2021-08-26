@@ -27,7 +27,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     $('.m-multiselect-wrapper').each(function(){
       var msId = $(this).data('el-id');
       data[msId] = {};
-      Object.assign(data[msId], { selectValues:[]});
+      Object.assign(data[msId], { selectValues:[], selectedText: []});
     });
 
     ready = true;
@@ -38,8 +38,17 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
    * @param {string} el The MS name (Element id)
    * @returns the MS values array 
    */
-  var value = function(el) {
+  var optionsValue = function(el) {
     return data[el].selectValues;
+  }
+
+  /**
+   * 
+   * @param {string} el The MS name (Element id)
+   * @returns the MS values array 
+   */
+  var textValues = function(el) {
+    return data[el].selectText;
   }
 
   /**
@@ -48,31 +57,39 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
    */
   var updateValue = function (msId, el) {
     if (!msId || !el) return;
-    var value = $(el).attr('value');
 
     if (el.ariaSelected === "true") {
-      selectedValuesAdd(msId, value);
+      selectedValuesAdd(msId, el);
     } else {
-      selectedValuesRemove(msId, value);
+      selectedValuesRemove(msId, el);
     }
 
     $('#' + msId).val(data[msId].selectValues);
     showSelectedOptions(msId);
   }
 
-  var selectedValuesAdd = function(msId, value) {
+  var selectedValuesAdd = function(msId, el) {
+    var value = $(el).attr('value');
+    var text = $(el).text();
+
     if (Array.isArray(data[msId].selectValues)) {
       data[msId].selectValues.push(value);
+      data[msId].selectText.push(text);
     } else {
       data[msId].selectValues = [value];
+      data[msId].selectText = [text];
     }
   }
 
-  var selectedValuesRemove = function(msId, value) {
+  var selectedValuesRemove = function(msId, el) {
+    var value = $(el).attr('value');
+    var text = $(el).text();
+
     if (Array.isArray(data[msId].selectValues)) {
       var index = data[msId].selectValues.indexOf(value);
       if(index < 0) return;
       data[msId].selectValues.splice(index, 1);
+      data[msId].selectText.splice(index, 1);
     }
   }
 
@@ -87,7 +104,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     } else if (selectedOptions > maxOptionsShow) {
       textValue = selectedOptions + ' ' + text_selected;
     } else {
-      textValue = data[msId].selectValues.join(',');
+      textValue = data[msId].selectText.join(',');
     }
 
     $('#' + msId + '-hint').text(textValue);
@@ -167,6 +184,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
 
   return {
     init: init,
-    value: value
+    optionsValue: optionsValue,
+    optionsText: optionsText
   }
 })(jQuery);
