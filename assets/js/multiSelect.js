@@ -1,4 +1,4 @@
-var MMultiSelect = MMultiselect || (function ($) {
+var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var data = {};
   var maxOptionsShow = 2;
   var showSelected = true;
