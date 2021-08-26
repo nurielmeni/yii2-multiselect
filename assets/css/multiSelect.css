@@ -6,6 +6,10 @@
   --m-multiselect--focus: #505050;
 }
 
+.m-multiselect-wrapper {
+  margin-top: -4px;
+}
+
 .m-multiselect-wrapper button.toggle {
   width: 100%;
   display: flex;
