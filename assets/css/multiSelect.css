@@ -32,14 +32,16 @@ p.m-multiselect-button {
 
 .m-multiselect-wrapper[dir="rtl"] p.m-multiselect-button span {
   text-align: right;
+  padding-left: 1rem;
 }
 
 .m-multiselect-wrapper[dir="ltr"] p.m-multiselect-button span {
   text-align: left;
+  padding-right: 1rem;
 }
 
-p.m-multiselect-button span:first-child {
- min-width: 5rem;
+p.m-multiselect-button span:last-child {
+  padding: 0;
 }
 
 p.m-multiselect-button .material-icons {
