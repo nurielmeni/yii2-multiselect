@@ -9,6 +9,7 @@ use nurielmeni\multiselect\assets\MultiSelectAsset;
  */
 class MultiSelectWidget extends \yii\base\Widget
 {
+    public $model;
     public $name = '';
     public $label = '';
     public $rtl = true;
