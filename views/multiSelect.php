@@ -3,18 +3,18 @@
 use yii\bootstrap4\Dropdown;
 ?>
 
-<div class="m-multiselect-wrapper" data-el-id="<?= $name ?>" dir="<?= $rtl ? 'rtl' : 'ltr' ?>">
-  <input id="<?= $name ?>" name="<?= $name ?>" type="hidden" value="[]" />
+<div class="m-multiselect-wrapper" data-el-id="<?= $attributeInputId ?>" dir="<?= $rtl ? 'rtl' : 'ltr' ?>">
+  <input id="<?= $attributeInputId ?>" name="<?= $attributeInputName ?>" type="hidden" value="[]" />
   <p class="m-multiselect-button">
-    <button id="<?= $name ?>-button" class="btn toggle" type="button" data-toggle="collapse" data-target="#<?= $name ?>-collapse" aria-expanded="false" aria-controls="<?= $name ?>-collapse" aria-labelledby="<?= $name ?>-label <?= $name ?>-hint">
-      <span id="<?= $name ?>-label"><?= $label ?></span>
-      <span id="<?= $name ?>-hint"></span>
+    <button id="<?= $attributeInputId ?>-button" class="btn toggle" type="button" data-toggle="collapse" data-target="#<?= $attributeInputId ?>-collapse" aria-expanded="false" aria-controls="<?= $attributeInputId ?>-collapse" aria-labelledby="<?= $attributeInputId ?>-label <?= $attributeInputId ?>-hint">
+      <span id="<?= $attributeInputId ?>-label"><?= $label ?></span>
+      <span id="<?= $attributeInputId ?>-hint"></span>
       <span class="material-icons m-icon">expand_more</span>
     </button>
   </p>
-  <div id="<?= $name ?>-collapse" class="collapse">
+  <div id="<?= $attributeInputId ?>-collapse" class="collapse">
     <div class="card-body">
-      <ul id="<?= $name ?>-options" class="m-multiselect-options" role="listbox" aria-labelledby="<?= $name ?>-label">
+      <ul id="<?= $attributeInputId ?>-options" class="m-multiselect-options" role="listbox" aria-labelledby="<?= $attributeInputId ?>-label">
         <?php foreach($options as $key => $option) : ?>
           <li role="option" aria-selected="false" value="<?= $key ?>" tabindex='-1'><?= $option ?></li>
         <?php endforeach; ?>

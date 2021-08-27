@@ -10,17 +10,32 @@ use nurielmeni\multiselect\assets\MultiSelectAsset;
 class MultiSelectWidget extends \yii\base\Widget
 {
     public $model;
-    public $name = '';
+    public $attribute = '';
     public $label = '';
     public $rtl = true;
     public $showSelected = true;
     public $maxOptionsShow = 2;
     public $options = [];
 
+    private function getAttributeInputId() {
+        $modelClass = get_class($this->model);
+        $exploded = explode('/', $modelClass);
+        return strtolower(end($exploded) . '-' . $this->attribute);
+    }
+    
+    private function getAttributeInputName() {
+        $modelClass = get_class($this->model);
+        $exploded = explode('/', $modelClass);
+        return end($exploded) . '[' . $this->attribute . ']';
+    }
+
     public function init()
     {
         parent::init();
         MultiSelectAsset::register(\Yii::$app->view);
+
+        $this->attributeInputId = $this->getAttributeInputId();
+        $this->attributeInputName = $this->getAttributeInputName();
 
         $this->name = empty($this->name) ? 'm-ms-' . rand(0, 100) : $this->name;
         $this->options = is_array($this->options) ? $this->options : [];
@@ -29,6 +44,9 @@ class MultiSelectWidget extends \yii\base\Widget
     public function run()
     {
         return $this->render('multiSelect', [
+            'model' => $this->model,
+            'attributeInputId' => $this->attributeInputId,
+            'attributeInputName' => $this->attributeInputName,
             'name' => $this->name,
             'label' => $this->label,
             'rtl' => $this->rtl,
