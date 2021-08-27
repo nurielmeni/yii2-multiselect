@@ -13,7 +13,7 @@
 .m-multiselect-wrapper button.toggle {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background-color: transparent;
   color: var(--m-multiselect--text);
@@ -30,8 +30,24 @@ p.m-multiselect-button {
   margin-bottom: 3px;
 }
 
+.m-multiselect-wrapper[dir="rtl"] p.m-multiselect-button span:first-child {
+ margin-left: 2rem;
+}
+
+.m-multiselect-wrapper[dir="ltr"] p.m-multiselect-button span:first-child {
+ margin-right: 2rem;
+}
+
 p.m-multiselect-button .material-icons {
   font-size: 2rem;
+}
+
+.m-multiselect-wrapper[dir="rtl"] p.m-multiselect-button .material-icons {
+  margin-right: auto;
+}
+
+.m-multiselect-wrapper[dir="ltr"] p.m-multiselect-button .material-icons {
+  margin-left: auto;
 }
 
 p.m-multiselect-button
