@@ -34,9 +34,6 @@ class MultiSelectWidget extends \yii\base\Widget
         parent::init();
         MultiSelectAsset::register(\Yii::$app->view);
 
-        $this->attributeInputId = $this->getAttributeInputId();
-        $this->attributeInputName = $this->getAttributeInputName();
-
         $this->name = empty($this->name) ? 'm-ms-' . rand(0, 100) : $this->name;
         $this->options = is_array($this->options) ? $this->options : [];
     }
@@ -45,8 +42,8 @@ class MultiSelectWidget extends \yii\base\Widget
     {
         return $this->render('multiSelect', [
             'model' => $this->model,
-            'attributeInputId' => $this->attributeInputId,
-            'attributeInputName' => $this->attributeInputName,
+            'attributeInputId' => $this->getAttributeInputId(),
+            'attributeInputName' => $this->getAttributeInputName(),
             'name' => $this->name,
             'label' => $this->label,
             'rtl' => $this->rtl,
