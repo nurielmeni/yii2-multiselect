@@ -44,7 +44,6 @@ class MultiSelectWidget extends \yii\base\Widget
             'model' => $this->model,
             'attributeInputId' => $this->getAttributeInputId(),
             'attributeInputName' => $this->getAttributeInputName(),
-            'name' => $this->name,
             'label' => $this->label,
             'rtl' => $this->rtl,
             'showSelected' => $this->showSelected,
