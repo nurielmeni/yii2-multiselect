@@ -19,13 +19,13 @@ class MultiSelectWidget extends \yii\base\Widget
 
     private function getAttributeInputId() {
         $modelClass = get_class($this->model);
-        $exploded = explode('/', $modelClass);
+        $exploded = explode('\\', $modelClass);
         return strtolower(end($exploded) . '-' . $this->attribute);
     }
     
     private function getAttributeInputName() {
         $modelClass = get_class($this->model);
-        $exploded = explode('/', $modelClass);
+        $exploded = explode('\\', $modelClass);
         return end($exploded) . '[' . $this->attribute . ']';
     }
 
