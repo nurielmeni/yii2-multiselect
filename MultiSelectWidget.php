@@ -34,7 +34,6 @@ class MultiSelectWidget extends \yii\base\Widget
         parent::init();
         MultiSelectAsset::register(\Yii::$app->view);
 
-        $this->name = empty($this->name) ? 'm-ms-' . rand(0, 100) : $this->name;
         $this->options = is_array($this->options) ? $this->options : [];
     }
 
