@@ -4,7 +4,7 @@ use yii\bootstrap4\Dropdown;
 ?>
 
 <div class="m-multiselect-wrapper" data-el-id="<?= $attributeInputId ?>" dir="<?= $rtl ? 'rtl' : 'ltr' ?>">
-  <input id="<?= $attributeInputId ?>" name="<?= $attributeInputName ?>" type="hidden" value="[]" />
+  <input id="<?= $attributeInputId ?>" name="<?= $attributeInputName ?>" type="hidden" value="" />
   <p class="m-multiselect-button">
     <button id="<?= $attributeInputId ?>-button" class="btn toggle" type="button" data-toggle="collapse" data-target="#<?= $attributeInputId ?>-collapse" aria-expanded="false" aria-controls="<?= $attributeInputId ?>-collapse" aria-labelledby="<?= $attributeInputId ?>-label <?= $attributeInputId ?>-hint">
       <span id="<?= $attributeInputId ?>-label"><?= $label ?></span>
