@@ -15,6 +15,7 @@ class MultiSelectWidget extends \yii\base\Widget
     public $rtl = true;
     public $showSelected = true;
     public $maxOptionsShow = 2;
+    public $legendText = '';
     public $options = [];
 
     private function getAttributeInputId() {
@@ -47,6 +48,7 @@ class MultiSelectWidget extends \yii\base\Widget
             'rtl' => $this->rtl,
             'showSelected' => $this->showSelected,
             'maxOptionsShow' => $this->maxOptionsShow,
+            'legendText' => $this->legendText,
             'options' => $this->options,
         ]);
     }

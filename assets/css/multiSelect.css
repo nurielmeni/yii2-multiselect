@@ -125,3 +125,8 @@ ul.m-multiselect-options li,
 .m-multiselect-wrapper .card-footer.action button .material-icons {
   font-size: 1.25rem;
 }
+
+.m-multiselect-wrapper .card-body legend {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
