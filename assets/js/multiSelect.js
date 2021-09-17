@@ -170,12 +170,12 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     // Set the arrows key action
     $('.m-multiselect-options li[role="option"]').on('keydown', function (e) {
       e = e || window.event;
-      if (e.keyCode == '37') {
-        // right arrow
+      if (e.keyCode == '38') {
+        // up arrow
         document.activeElement.nextElementSibling && document.activeElement.nextElementSibling.focus();
       }
-      else if (e.keyCode == '39') {
-        // left arrow
+      else if (e.keyCode == '40') {
+        // down arrow
         document.activeElement.previousElementSibling && document.activeElement.previousElementSibling.focus();
       }
     });
