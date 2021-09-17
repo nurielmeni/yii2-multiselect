@@ -172,10 +172,12 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
       e = e || window.event;
       if (e.keyCode == '40') {
         // up arrow
+        e.preventDefault();
         document.activeElement.nextElementSibling && document.activeElement.nextElementSibling.focus();
       }
       else if (e.keyCode == '38') {
         // down arrow
+        e.preventDefault();
         document.activeElement.previousElementSibling && document.activeElement.previousElementSibling.focus();
       }
     });
