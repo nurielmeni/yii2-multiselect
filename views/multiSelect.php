@@ -1,6 +1,8 @@
 <?php
 
 use yii\bootstrap4\Dropdown;
+
+$firstOption = reset($options);
 ?>
 
 <div class="m-multiselect-wrapper" data-el-id="<?= $attributeInputId ?>" dir="<?= $rtl ? 'rtl' : 'ltr' ?>">
@@ -16,7 +18,7 @@ use yii\bootstrap4\Dropdown;
     <div class="card-body">
       <ul id="<?= $attributeInputId ?>-options" class="m-multiselect-options" role="listbox" aria-labelledby="<?= $attributeInputId ?>-label">
         <?php foreach($options as $key => $option) : ?>
-          <li role="option" aria-selected="false" value="<?= $key ?>" tabindex='-1'><?= $option ?></li>
+          <li role="option" aria-selected="false" value="<?= $key ?>" tabindex='<?= $firstOption === $option ? 0 : -1 ?>'><?= $option ?></li>
         <?php endforeach; ?>
       </ul>
     </div>
