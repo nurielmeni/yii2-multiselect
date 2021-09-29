@@ -18,10 +18,16 @@ $firstOption = reset($options);
     <div class="card-body">
       <ul id="<?= $attributeInputId ?>-options" class="m-multiselect-options" role="listbox" aria-labelledby="<?= $attributeInputId ?>-label">
         <?php if (!empty($legendText)) : ?>
-          <legend><?= $legendText ?></legend>
+          <legend id="<?= $attributeInputId ?>-instructions"><?= $legendText ?></legend>
         <?php endif; ?>
-        <?php foreach($options as $key => $option) : ?>
-          <li role="option" aria-selected="false" value="<?= $key ?>" tabindex='<?= $firstOption === $option ? 0 : -1 ?>'><?= $option ?></li>
+        <?php foreach ($options as $key => $option) : ?>
+          <li 
+            role="option" 
+            aria-selected="false" 
+            value="<?= $key ?>" 
+            tabindex='<?= $firstOption === $option ? 0 : -1 ?>' 
+            <?= $firstOption ? 'aria-describedby="' . $attributeInputId . '-instructions"' : '' ?>
+          ><?= $option ?></li>
         <?php endforeach; ?>
       </ul>
     </div>
@@ -33,7 +39,7 @@ $firstOption = reset($options);
   </div>
 </div>
 
-<?php 
+<?php
 
 $js = <<<JS
   MMultiSelect.init({

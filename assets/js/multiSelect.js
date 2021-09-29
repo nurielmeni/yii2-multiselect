@@ -149,7 +149,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
 
     // Set focus to button
     $('.m-multiselect-wrapper .collapse').on('shown.bs.collapse', function () {
-      $(this).find('li[role="option"]:first-child').focus();
+      $(this).find('li[role="option"]').first().focus();
     });
 
     // Set focus to first option
