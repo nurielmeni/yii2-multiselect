@@ -123,6 +123,8 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
    */
   var selectAll = function (msId) {
     if (!msId) return;
+    // Remove before insert all
+    removeAll(msId);
     $('#' + msId + '-options li')
       .attr('aria-selected', 'true')
       .each(function(e) {
