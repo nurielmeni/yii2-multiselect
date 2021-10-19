@@ -65,6 +65,8 @@ p.m-multiselect-button
   transform: rotate(180deg);
 }
 
+.m-multiselect-wrapper .collapse.floating,
+.m-multiselect-wrapper .collapsing.floating,
 .m-multiselect-wrapper .floating {
   position: absolute;
   z-index: 101;
