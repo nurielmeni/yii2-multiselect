@@ -44,7 +44,8 @@ $firstOption = reset($options);
 $js = <<<JS
   MMultiSelect.init({
     maxOptionsShow: $maxOptionsShow,
-    showSelected: $showSelected
+    showSelected: $showSelected,
+    floating: $floating
   });
 JS;
 

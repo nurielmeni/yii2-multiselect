@@ -71,6 +71,7 @@ p.m-multiselect-button
   background-color: white;
   box-shadow: rgb(238 238 238) 0px 0px 8px 1px;
   margin-left: 15px;
+  margin-right: -1px;
 }
 
 .m-multiselect-wrapper .card.card-body {
