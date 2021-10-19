@@ -16,7 +16,7 @@ class MultiSelectWidget extends \yii\base\Widget
     public $showSelected = true;
     public $maxOptionsShow = 2;
     public $legendText = '';
-    public $floating = false;
+    public $floating = 0;
     public $options = [];
 
     private function getAttributeInputId() {
