@@ -63,6 +63,14 @@ p.m-multiselect-button
   transform: rotate(180deg);
 }
 
+.m-multiselect-wrapper .collapse.floating {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  box-shadow: rgb(238 238 238) 0px 0px 8px 1px;
+  margin-left: 15px;
+}
+
 .m-multiselect-wrapper .card.card-body {
   border: none;
 }

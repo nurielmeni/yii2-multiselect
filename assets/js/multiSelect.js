@@ -5,6 +5,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var text_selected = 'נבחרו';
   var text_all_selected = 'כולם נבחרו';
   var ready = false;
+  var floating = false;
 
   /**
    * 
@@ -14,6 +15,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var init = function(config) {
     maxOptionsShow = config.maxOptionsShow || 2;
     showSelected = !!config.showSelected;
+    floating = !!config.floating;
 
     initData();
     if (!ready) return;
@@ -29,6 +31,12 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
       data[msId] = {};
       Object.assign(data[msId], { selectValues:[], selectText: []});
     });
+
+    if(floating) {
+      $('.m-multiselect-wrapper .collapse').addClass('floating');
+    } else {
+      $('.m-multiselect-wrapper .collapse').removeClass('floating');
+    }
 
     ready = true;
   }
@@ -115,8 +123,13 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
    */
   var selectAll = function (msId) {
     if (!msId) return;
-    $('#' + msId + '-options li').attr('aria-selected', 'true');
-    updateValue(msId);
+    $('#' + msId + '-options li')
+      .attr('aria-selected', 'true')
+      .each(function(e) {
+        selectedValuesAdd(msId, this);
+      });
+
+    showSelectedOptions(msId);
   }
 
   /**
@@ -125,7 +138,11 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var removeAll = function (msId) {
     if (!msId) return;
     $('#' + msId + '-options li').attr('aria-selected', 'false');
-    updateValue(msId);
+
+    // clears the array of items
+    data[msId].selectValues.length = 0;
+    data[msId].selectText.length = 0;
+    showSelectedOptions(msId);
   }
 
   var setEventListeners = function () {
