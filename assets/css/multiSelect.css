@@ -67,7 +67,7 @@ p.m-multiselect-button
 
 .m-multiselect-wrapper .floating {
   position: absolute;
-  z-index: 100;
+  z-index: 101;
   background-color: white;
   box-shadow: rgb(238 238 238) 0px 0px 8px 1px;
   margin-left: 15px;
