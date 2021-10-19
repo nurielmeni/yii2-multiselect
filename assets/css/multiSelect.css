@@ -34,6 +34,8 @@ p.m-multiselect-button {
   text-align: right;
   padding-left: 1rem;
   padding-right: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .m-multiselect-wrapper[dir="ltr"] p.m-multiselect-button span {
@@ -63,7 +65,7 @@ p.m-multiselect-button
   transform: rotate(180deg);
 }
 
-.m-multiselect-wrapper .collapse.floating {
+.m-multiselect-wrapper .floating {
   position: absolute;
   z-index: 100;
   background-color: white;
