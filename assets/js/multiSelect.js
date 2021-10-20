@@ -78,7 +78,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     showSelectedOptions(msId);
   }
 
-  var validateSelect = function(addition) {
+  var validateSelect = function(msId, addition) {
     var helpBlockQuery = '#' + msId + ' .card-footer.help-block';
 
     if (maxSelectOptions !== 0 && data[msId].selectValues.length + addition > maxSelectOptions) {
@@ -93,7 +93,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var selectionValidate
 
   var selectedValuesAdd = function(msId, el) {
-    if (!validateSelect(1)) return;
+    if (!validateSelect(msId, 1)) return;
 
     var value = $(el).attr('value');
     var text = $(el).text();
@@ -108,7 +108,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   }
 
   var selectedValuesRemove = function(msId, el) {
-    if (!validateSelect(-1)) return;
+    if (!validateSelect(msId, -1)) return;
 
     var value = $(el).attr('value');
     var text = $(el).text();
