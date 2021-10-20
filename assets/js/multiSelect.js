@@ -68,7 +68,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var updateValue = function (msId, el) {
     if (!msId || !el) return;
 
-    if (el.ariaSelected === "true") {
+    if (el.ariaSelected === "false") {
       selectedValuesAdd(msId, el);
     } else {
       selectedValuesRemove(msId, el);
@@ -79,7 +79,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   }
 
   var validateSelect = function(msId, addition) {
-    var helpBlockQuery = '#' + msId + ' .card-footer.help-block';
+    var helpBlockQuery = '#' + msId + '-collapse .card-footer.help-block';
 
     if (maxSelectOptions !== 0 && data[msId].selectValues.length + addition > maxSelectOptions) {
       $(helpBlockQuery).text('ניתן לבחור עד ' + maxSelectOptions + ' אפשרויות');
@@ -105,6 +105,8 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
       data[msId].selectValues = [value];
       data[msId].selectText = [text];
     }
+
+    el.ariaSelected = "true";
   }
 
   var selectedValuesRemove = function(msId, el) {
@@ -119,6 +121,8 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
       data[msId].selectValues.splice(index, 1);
       data[msId].selectText.splice(index, 1);
     }
+
+    el.ariaSelected = "false";
   }
 
   var showSelectedOptions = function(msId) {
@@ -171,7 +175,6 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     // EVEN HANDLERS
     // Toggle selected options
     $('.m-multiselect-options li[role="option"]').on('click', function () {
-      this.ariaSelected = this.ariaSelected === "true" ? "false" : "true";
       $(this).focus();
       updateValue($(this).parents('.m-multiselect-wrapper').data('el-id'), this);
     });
