@@ -150,7 +150,6 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     // Remove before insert all
     removeAll(msId);
     $('#' + msId + '-options li')
-      .attr('aria-selected', 'true')
       .each(function(e) {
         selectedValuesAdd(msId, this);
       });
@@ -168,6 +167,9 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     // clears the array of items
     data[msId].selectValues.length = 0;
     data[msId].selectText.length = 0;
+
+    validateSelect(msId, -1);
+
     showSelectedOptions(msId);
   }
 
