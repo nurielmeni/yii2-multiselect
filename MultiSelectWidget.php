@@ -16,7 +16,10 @@ class MultiSelectWidget extends \yii\base\Widget
     public $showSelected = true;
     public $maxOptionsShow = 2;
     public $legendText = '';
+    // 0 - Accordion, Not floating (absolute)
     public $floating = 0;
+    // 0 - Unlimited
+    public $maxSelectOptions = 0;
     public $options = [];
 
     private function getAttributeInputId() {
@@ -51,6 +54,7 @@ class MultiSelectWidget extends \yii\base\Widget
             'maxOptionsShow' => $this->maxOptionsShow,
             'legendText' => $this->legendText,
             'floating' => $this->floating,
+            'maxSelectOptions' => $this->maxSelectOptions,
             'options' => $this->options,
         ]);
     }

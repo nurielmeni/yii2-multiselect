@@ -35,7 +35,8 @@ $firstOption = reset($options);
       <button class="btn select-all" type="button"><span class="material-icons">check</span>בחר הכל</button>
       <button class="btn remove-all" type="button"><span class="material-icons">close</span>הסר הכל</button>
     </div>
-
+    <div class="card-footer help-block">
+    </div>
   </div>
 </div>
 
@@ -45,7 +46,8 @@ $js = <<<JS
   MMultiSelect.init({
     maxOptionsShow: $maxOptionsShow,
     showSelected: $showSelected,
-    floating: $floating
+    floating: $floating,
+    maxSelectOptions: $maxSelectOptions
   });
 JS;
 

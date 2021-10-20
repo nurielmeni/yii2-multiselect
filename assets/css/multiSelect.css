@@ -78,6 +78,10 @@ p.m-multiselect-button
   border: none;
 }
 
+.m-multiselect-wrapper .card-footer.help-block {
+  color: #a94442;
+}
+
 ul.m-multiselect-options {
   display: flex;
   justify-content: flex-start;

@@ -6,6 +6,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   var text_all_selected = 'כולם נבחרו';
   var ready = false;
   var floating = false;
+  var maxSelectOptions = 0;
 
   /**
    * 
@@ -16,6 +17,7 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     maxOptionsShow = config.maxOptionsShow || 2;
     showSelected = !!config.showSelected;
     floating = !!config.floating;
+    maxSelectOptions = config.maxSelectOptions;
 
     initData();
     if (!ready) return;
@@ -76,7 +78,23 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
     showSelectedOptions(msId);
   }
 
+  var validateSelect = function(addition) {
+    var helpBlockQuery = '#' + msId + ' .card-footer.help-block';
+
+    if (maxSelectOptions !== 0 && data[msId].selectValues.length + addition > maxSelectOptions) {
+      $(helpBlockQuery).text('ניתן לבחור עד ' + maxSelectOptions + ' אפשרויות');
+      return false;
+    } 
+
+    $(helpBlockQuery).text('');
+    return true;
+  }
+
+  var selectionValidate
+
   var selectedValuesAdd = function(msId, el) {
+    if (!validateSelect(1)) return;
+
     var value = $(el).attr('value');
     var text = $(el).text();
 
@@ -90,6 +108,8 @@ var MMultiSelect = typeof MMultiSelect === 'object' || (function ($) {
   }
 
   var selectedValuesRemove = function(msId, el) {
+    if (!validateSelect(-1)) return;
+
     var value = $(el).attr('value');
     var text = $(el).text();
 
