@@ -32,7 +32,10 @@ $firstOption = reset($options);
       </ul>
     </div>
     <div class="card-footer action">
-      <button class="btn select-all" type="button"><span class="material-icons">check</span>בחר הכל</button>
+      <?php if($maxSelectOptions > 0) : ?>
+        <button class="btn select-all" type="button"><span class="material-icons">check</span>בחר הכל</button>
+      <?php endif ?>
+      
       <button class="btn remove-all" type="button"><span class="material-icons">close</span>הסר הכל</button>
     </div>
     <div class="card-footer help-block">
