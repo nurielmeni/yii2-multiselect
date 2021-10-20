@@ -79,7 +79,10 @@ p.m-multiselect-button
 }
 
 .m-multiselect-wrapper .card-footer.help-block {
-  color: #a94442;
+  color: white;
+  text-align: center;
+  background-color: #a94442;
+  border-radius: 2px;
 }
 
 ul.m-multiselect-options {
